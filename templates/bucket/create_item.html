@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block body %}
+<h2>Create Goal</h2>
+<form action="{{ url_for('create_item') }}" method=post>
+  <dl>
+    <dt>New Goal:
+    <dd><input type=text name=goal>
+    <dd><input type=submit value=Create>
+  </dl>
+</form>
+{% endblock %}

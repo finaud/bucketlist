@@ -1,0 +1,6 @@
+__pycache__/
+venv/
+.idea/
+
+config.py
+firebase-admin-key.json

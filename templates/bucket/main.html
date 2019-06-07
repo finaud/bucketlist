@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block body %}
+<h3>Bucket List</h3>
+<form action="{{ url_for('create_item') }}">
+  <input type="submit" value="Create New Goal" />
+</form>
+<hr>
+<h3>Goals</h3>
+<ul>
+  {% for item in goals %}
+  <li>
+    {{ item['goal'] }}
+    <form method=post>
+      <input type=hidden name=item_id value={{ item['item_id'] }}>
+      <button formaction="{{ url_for('complete_item') }}">Complete</button>
+      <button formaction="{{ url_for('delete_item') }}">Delete</button>
+    </form>
+
+  </li>
+  {% endfor %}
+</ul>
+<h3>Completed</h3>
+<ul>
+  {% for item in completed %}
+  <li>
+    {{ item['goal'] }}
+    <form method=post>
+      <input type=hidden name=item_id value={{ item['item_id'] }}>
+      <button formaction="{{ url_for('delete_item') }}">Delete</button>
+    </form>
+
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}
