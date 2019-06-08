@@ -6,30 +6,28 @@
 </form>
 <hr>
 <h3>Goals</h3>
-<ul>
+<div>
   {% for item in goals %}
-  <li>
-    {{ item['goal'] }}
-    <form method=post>
+  <div class="goal">
+    <div class="goal-text">{{ item['goal'] }}</div>
+    <form method=post class="goal-options">
       <input type=hidden name=item_id value={{ item['item_id'] }}>
-      <button formaction="{{ url_for('complete_item') }}">Complete</button>
-      <button formaction="{{ url_for('delete_item') }}">Delete</button>
+      <button formaction="{{ url_for('delete_item') }}" class="delete-btn">Delete</button>
+      <button formaction="{{ url_for('complete_item') }}" class="complete-btn">Complete</button>
     </form>
-
-  </li>
-  {% endfor %}
-</ul>
+  </div>
+</div>
+{% endfor %}
 <h3>Completed</h3>
-<ul>
+<div>
   {% for item in completed %}
-  <li>
-    {{ item['goal'] }}
-    <form method=post>
+  <div class="goal">
+    <div class="goal-text">{{ item['goal'] }}</div>
+    <form method=post class="goal-options">
       <input type=hidden name=item_id value={{ item['item_id'] }}>
-      <button formaction="{{ url_for('delete_item') }}">Delete</button>
+      <button formaction="{{ url_for('delete_item') }}" class="delete-btn">Delete</button>
     </form>
-
-  </li>
+  </div>
   {% endfor %}
-</ul>
+</div>
 {% endblock %}
