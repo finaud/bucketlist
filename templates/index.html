@@ -1,5 +1,10 @@
 {% extends "layout.html" %}
 {% block body %}
   <h2>Welcome!</h2>
-  <p>A basic bucket list application, for you to keep track of your goals and dreams.</p>
+  <p>A basic bucket list application, for you to keep track of your goals and dreams. Made with Google Firebase and Flask.</p>
+  <div style="text-align:center;">
+  <a class="button" href="{{ url_for('login') }}" style="background-color:#429ef4;">Login</a>
+  <a class="button" href="{{ url_for('register') }}" style="background-color:#f4a641;">Register</a>
+</div>
+
 {% endblock %}

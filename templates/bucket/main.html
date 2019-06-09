@@ -6,8 +6,7 @@
 </form>
 <hr>
 <h3>Goals</h3>
-<div>
-  {% for item in goals %}
+{% for item in goals %}
   <div class="goal">
     <div class="goal-text">{{ item['goal'] }}</div>
     <form method=post class="goal-options">
@@ -16,18 +15,15 @@
       <button formaction="{{ url_for('complete_item') }}" class="complete-btn">Complete</button>
     </form>
   </div>
-</div>
 {% endfor %}
 <h3>Completed</h3>
-<div>
-  {% for item in completed %}
-  <div class="goal">
-    <div class="goal-text">{{ item['goal'] }}</div>
-    <form method=post class="goal-options">
-      <input type=hidden name=item_id value={{ item['item_id'] }}>
-      <button formaction="{{ url_for('delete_item') }}" class="delete-btn">Delete</button>
-    </form>
-  </div>
-  {% endfor %}
+{% for item in completed %}
+<div class="goal">
+  <div class="goal-text">{{ item['goal'] }}</div>
+  <form method=post class="goal-options">
+    <input type=hidden name=item_id value={{ item['item_id'] }}>
+    <button formaction="{{ url_for('delete_item') }}" class="delete-btn">Delete</button>
+  </form>
 </div>
+{% endfor %}
 {% endblock %}

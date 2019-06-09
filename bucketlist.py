@@ -12,6 +12,7 @@ app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(hours=1)
 
 firebase = pyrebase.initialize_app(config.pyrebase)
 
+
 @app.route('/')
 def index():
     return render_template('index.html')
